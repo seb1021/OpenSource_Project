@@ -23,13 +23,13 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author bikash
  */
-public class ViewBook extends javax.swing.JFrame {
+public class AllStudent extends javax.swing.JFrame {
 
     /**
      * Creates new form ViewBook
      * @throws java.sql.SQLException
      */
-    public ViewBook() throws SQLException {
+    public AllStudent() throws SQLException {
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         initComponents();
         DefaultTableModel model;
@@ -37,16 +37,13 @@ public class ViewBook extends javax.swing.JFrame {
        // String Data[][]=null;
       //  String Column[]=null;
         try(Connection Con = DB.getConnection()) {
-            PreparedStatement ps=Con.prepareStatement("select * from Books",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            PreparedStatement ps=Con.prepareStatement("select * from Users",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
             ResultSet rs= ps.executeQuery();
             
            ResultSetMetaData rsmd = rs.getMetaData();
   
             int colnum=rsmd.getColumnCount();
         
-            NameRadio.setSelected(true);
-            
-            
          /*   Column = new String[colnum];
             for(int i=1;i<=colnum;i++){
                Column[i-1]=rsmd.getColumnClassName(i);
@@ -103,14 +100,14 @@ public class ViewBook extends javax.swing.JFrame {
             new Object [][] {
             },
             new String [] {
-                "장난감 번호", "이름", "분류", "기부자", "제조회사", "선반", "층"
+                "사용자 번호", "사용자 비밀번호", "등록일", "사용자 이름", "Email"
             }
         ) {
             Class[] types = new Class [] {
                 java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -122,9 +119,13 @@ public class ViewBook extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jTable1);
-
+        //'사용자 번호'셀 사이즈 변경 (오세빈)
+        jTable1.getColumnModel().getColumn(0).setMaxWidth(100); 
+        jTable1.getColumnModel().getColumn(0).setMinWidth(100); 
+        jTable1.getColumnModel().getColumn(0).setWidth(100); 
+      
         jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
-        jLabel1.setText("장난감");
+        jLabel1.setText("사용자");
 
         jButton1.setText("종료");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +154,7 @@ public class ViewBook extends javax.swing.JFrame {
             }
         });
 
-        AuthorRadio.setText("기부자");
+        AuthorRadio.setText("Email");
         AuthorRadio.setToolTipText("");
         AuthorRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,7 +269,7 @@ public class ViewBook extends javax.swing.JFrame {
       //  String Column[]=null;
             String Search = "%"+SearchField.getText()+"%";
         try(Connection Con = DB.getConnection()) {
-            PreparedStatement ps=Con.prepareStatement("select * from Books where BookName like ?",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            PreparedStatement ps=Con.prepareStatement("select * from Users where UserName like ?",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
             ps.setString(1, Search);
             ResultSet rs= ps.executeQuery();
             
@@ -293,11 +294,11 @@ public class ViewBook extends javax.swing.JFrame {
             {
                 String NoRow[];
                 NoRow = new String[7];
-                NoRow[3]="NO";
-                NoRow[4]="RESULT";
+                NoRow[1]="NO";
+                NoRow[2]="RESULT";
                 NoRow[0]="";
-                NoRow[1]="";
-                NoRow[2]="";
+                NoRow[3]="";
+                NoRow[4]="";
                 NoRow[5]="";
                 NoRow[6]="";
                 model.addRow(NoRow);
@@ -319,7 +320,7 @@ public class ViewBook extends javax.swing.JFrame {
       //  String Column[]=null;
             String Search = "%"+SearchField.getText()+"%";
         try(Connection Con = DB.getConnection()) {
-            PreparedStatement ps=Con.prepareStatement("select * from Books where Author like ?",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            PreparedStatement ps=Con.prepareStatement("select * from Users where Email like ?",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
             ps.setString(1, Search);
             ResultSet rs= ps.executeQuery();
             
@@ -344,11 +345,11 @@ public class ViewBook extends javax.swing.JFrame {
             {
                 String NoRow[];
                 NoRow = new String[7];
-                NoRow[3]="NO";
-                NoRow[4]="RESULT";
+                NoRow[1]="NO";
+                NoRow[2]="RESULT";
                 NoRow[0]="";
-                NoRow[1]="";
-                NoRow[2]="";
+                NoRow[3]="";
+                NoRow[4]="";
                 NoRow[5]="";
                 NoRow[6]="";
                 model.addRow(NoRow);
@@ -367,7 +368,7 @@ public class ViewBook extends javax.swing.JFrame {
         else
         {
             
-				JOptionPane.showMessageDialog(ViewBook.this, "이름이나 기부자를 선택하세요","No Selection!", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(AllStudent.this, "Select Name or Email","No Selection!", JOptionPane.ERROR_MESSAGE);
         }
                 
                   /*   Column = new String[colnum];
@@ -403,7 +404,7 @@ public class ViewBook extends javax.swing.JFrame {
        // String Data[][]=null;
       //  String Column[]=null;
         try(Connection Con = DB.getConnection()) {
-            PreparedStatement ps=Con.prepareStatement("select * from Books",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            PreparedStatement ps=Con.prepareStatement("select * from Users",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
             ResultSet rs= ps.executeQuery();
             
            ResultSetMetaData rsmd = rs.getMetaData();
@@ -459,23 +460,24 @@ public class ViewBook extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AllStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AllStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AllStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewBook.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AllStudent.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new ViewBook().setVisible(true);
+                    new AllStudent().setVisible(true);
                 } catch (SQLException ex) {
-                    Logger.getLogger(ViewBook.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(AllStudent.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
