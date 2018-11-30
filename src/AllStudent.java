@@ -102,7 +102,7 @@ public class AllStudent extends javax.swing.JFrame {
             new Object [][] {
             },
             new String [] {
-                "»ç¿ëÀÚ ¹øÈ£", "»ç¿ëÀÚ ºñ¹Ğ¹øÈ£", "µî·ÏÀÏ", "»ç¿ëÀÚ ÀÌ¸§", "Email"
+                "ì‚¬ìš©ì ë²ˆí˜¸", "ì‚¬ìš©ì ë¹„ë°€ë²ˆí˜¸", "ë“±ë¡ì¼", "ì‚¬ìš©ì ì´ë¦„", "Email"
             }
         ) {
             Class[] types = new Class [] {
@@ -121,18 +121,22 @@ public class AllStudent extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(jTable1);
-
+	//'ì‚¬ìš©ì ë²ˆí˜¸'ì…€ ì‚¬ì´ì¦ˆ ë³€ê²½ (ì˜¤ì„¸ë¹ˆ)
+        jTable1.getColumnModel().getColumn(0).setMaxWidth(100); 
+        jTable1.getColumnModel().getColumn(0).setMinWidth(100); 
+        jTable1.getColumnModel().getColumn(0).setWidth(100); 
+	    
         jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
-        jLabel1.setText("»ç¿ëÀÚ");
+        jLabel1.setText("ì‚¬ìš©ì");
 
-        jButton1.setText("Á¾·á");
+        jButton1.setText("ì¢…ë£Œ");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        NameRadio.setText("ÀÌ¸§");
+        NameRadio.setText("ì´ë¦„");
         NameRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NameRadioActionPerformed(evt);
@@ -145,7 +149,7 @@ public class AllStudent extends javax.swing.JFrame {
             }
         });
 
-        Search.setText("Ã£±â");
+        Search.setText("ì°¾ê¸°");
         Search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SearchActionPerformed(evt);
@@ -160,7 +164,7 @@ public class AllStudent extends javax.swing.JFrame {
             }
         });
 
-        ALL.setText("ÀüÃ¼");
+        ALL.setText("ì „ì²´");
         ALL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ALLActionPerformed(evt);
