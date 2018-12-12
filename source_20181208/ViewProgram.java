@@ -18,6 +18,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 /**
  *
@@ -83,7 +86,6 @@ public class ViewProgram extends javax.swing.JFrame {
         NameRadio = new javax.swing.JRadioButton();
         DayRadio = new javax.swing.JRadioButton();
         ALL = new javax.swing.JRadioButton();
-        NotIssued = new javax.swing.JRadioButton();
         SearchField = new javax.swing.JTextField();
         Search = new javax.swing.JButton();
         ShowALL = new javax.swing.JButton();
@@ -93,7 +95,7 @@ public class ViewProgram extends javax.swing.JFrame {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
             },
-            new String [] {	//테이블 헤더 부분
+            new String [] {   //테이블 헤더 부분
                 "프로그램 번호", "장난감 도서관 이름", "프로그램 이름", "요일", "시간", "나이", "정원", "장소"
             }
         ) {
@@ -160,63 +162,61 @@ public class ViewProgram extends javax.swing.JFrame {
             }
         });
 
+        setTitle("프로그램 예약");
         setResizable(false); //pch : 창 크기 고정
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+           layout.createParallelGroup(Alignment.TRAILING)
+              .addGroup(layout.createSequentialGroup()
+                 .addGroup(layout.createParallelGroup(Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(698, 698, 698)
-                        .addComponent(jButton1))
+                       .addGap(698)
+                       .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1464, javax.swing.GroupLayout.PREFERRED_SIZE))
+                       .addGap(25)
+                       .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 1464, GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(452, 452, 452)
-                        .addComponent(NameRadio)
-                        .addGap(30, 30, 30)
-                        .addComponent(DayRadio)
-                        .addGap(308, 308, 308)
-                        .addComponent(ALL)
-                        .addGap(40, 40, 40)
-                        .addComponent(NotIssued))
+                       .addGap(452)
+                       .addComponent(NameRadio)
+                       .addGap(30)
+                       .addComponent(DayRadio)
+                       .addGap(308)
+                       .addComponent(ALL))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(725, 725, 725)
-                        .addComponent(jLabel1)))
-                .addContainerGap(29, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(ShowALL)
-                .addGap(122, 122, 122)
-                .addComponent(SearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(Search)
-                .addGap(288, 288, 288))
+                       .addGap(725)
+                       .addComponent(jLabel1)))
+                 .addContainerGap(29, Short.MAX_VALUE))
+              .addGroup(layout.createSequentialGroup()
+                 .addGap(0, 688, Short.MAX_VALUE)
+                 .addComponent(ShowALL)
+                 .addGap(122)
+                 .addComponent(SearchField, GroupLayout.PREFERRED_SIZE, 230, GroupLayout.PREFERRED_SIZE)
+                 .addGap(36)
+                 .addComponent(Search)
+                 .addGap(288))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+           layout.createParallelGroup(Alignment.TRAILING)
+              .addGroup(layout.createSequentialGroup()
+                 .addGap(34)
+                 .addComponent(jLabel1)
+                 .addGap(18)
+                 .addGroup(layout.createParallelGroup(Alignment.BASELINE)
                     .addComponent(NameRadio)
                     .addComponent(DayRadio)
-                    .addComponent(ALL)
-                    .addComponent(NotIssued))
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SearchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ALL))
+                 .addGap(16)
+                 .addGroup(layout.createParallelGroup(Alignment.BASELINE)
+                    .addComponent(SearchField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addComponent(Search)
                     .addComponent(ShowALL))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                 .addPreferredGap(ComponentPlacement.UNRELATED)
+                 .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                 .addPreferredGap(ComponentPlacement.UNRELATED)
+                 .addComponent(jButton1)
+                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+        getContentPane().setLayout(layout);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -232,13 +232,13 @@ public class ViewProgram extends javax.swing.JFrame {
       JOptionPane.showMessageDialog(ViewProgram.this, "찾을 목록이 없습니다","찾기 에러!", JOptionPane.ERROR_MESSAGE);
 
         if(!ALL.isSelected())
-            if(!NotIssued.isSelected())
+           // if(!NotIssued.isSelected())
             ALL.setEnabled(true);
         
         int flag=0;
         if(ALL.isSelected())
             flag=0;
-        if(NotIssued.isSelected())
+       // if(NotIssued.isSelected())
             flag=1;
         DefaultTableModel model;
         model = (DefaultTableModel) jTable1.getModel();
@@ -352,7 +352,7 @@ public class ViewProgram extends javax.swing.JFrame {
         else
         {
             
-				JOptionPane.showMessageDialog(ViewProgram.this, "이름이나 요일을 선택하세요","선택할 수 없습니다!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(ViewProgram.this, "이름이나 요일을 선택하세요","선택할 수 없습니다!", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_SearchActionPerformed
 
@@ -368,7 +368,7 @@ public class ViewProgram extends javax.swing.JFrame {
 
     private void ALLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ALLActionPerformed
         // TODO add your handling code here:
-        NotIssued.setSelected(false);
+      //  NotIssued.setSelected(false);
       
     }//GEN-LAST:event_ALLActionPerformed
 
@@ -388,7 +388,7 @@ public class ViewProgram extends javax.swing.JFrame {
             model.removeRow(model.getRowCount()-1);
          
          
-         if(!ALL.isSelected()&&!NotIssued.isSelected())
+         if(!ALL.isSelected()/*&&!NotIssued.isSelected()*/)
          {
              ALL.setSelected(true);
          }
@@ -397,8 +397,8 @@ public class ViewProgram extends javax.swing.JFrame {
          int flag=0;
          if(ALL.isSelected())
              flag=0;
-         if(NotIssued.isSelected())
-             flag=1;
+         //if(NotIssued.isSelected())
+          //   flag=1;
        // String Data[][]=null;
       //  String Column[]=null;
         try(Connection Con = DB.getConnection()) {
@@ -473,7 +473,6 @@ public class ViewProgram extends javax.swing.JFrame {
     private javax.swing.JRadioButton ALL;
     private javax.swing.JRadioButton DayRadio;
     private javax.swing.JRadioButton NameRadio;
-    private javax.swing.JRadioButton NotIssued;
     private javax.swing.JButton Search;
     private javax.swing.JTextField SearchField;
     private javax.swing.JButton ShowALL;
