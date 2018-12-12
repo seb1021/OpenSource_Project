@@ -102,7 +102,7 @@ public class AllStudent extends javax.swing.JFrame {
             new Object [][] {
             },
             new String [] {
-                "사용자 번호", "사용자 비밀번호", "등록일", "사용자 이름", "Email"
+                "사용자 번호", "장난감도서관이름", "핸드폰번호", "사용자 이름", "자녀이름"
             }
         ) {
             Class[] types = new Class [] {
@@ -152,7 +152,7 @@ public class AllStudent extends javax.swing.JFrame {
             }
         });
 
-        AuthorRadio.setText("Email");
+        AuthorRadio.setText("자녀이름");
         AuthorRadio.setToolTipText("");
         AuthorRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -319,7 +319,7 @@ public class AllStudent extends javax.swing.JFrame {
       //  String Column[]=null;
             String Search = "%"+SearchField.getText()+"%";
         try(Connection Con = DB.getConnection()) {
-            PreparedStatement ps=Con.prepareStatement("select * from Userlist where Email like ?",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            PreparedStatement ps=Con.prepareStatement("select * from Userlist where 자녀이름 like ?",ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
             ps.setString(1, Search);
             ResultSet rs= ps.executeQuery();
             
@@ -367,7 +367,7 @@ public class AllStudent extends javax.swing.JFrame {
         else
         {
             
-				JOptionPane.showMessageDialog(AllStudent.this, "Select Name or Email","No Selection!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(AllStudent.this, "Select Name or 자녀이름","No Selection!", JOptionPane.ERROR_MESSAGE);
         }
                 
                   /*   Column = new String[colnum];
