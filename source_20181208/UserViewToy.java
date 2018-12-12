@@ -115,14 +115,14 @@ public class UserViewToy extends javax.swing.JFrame {
             new Object [][] {
             },
             new String [] {
-                "장난감 번호", "이름", "분류", "제조 회사", "대여상태"
+                "장난감 번호", "이름", "분류", "출판사", "대여상태"
             }
         ) {
             Class[] types = new Class [] {
                 java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false,  false,false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -187,6 +187,7 @@ public class UserViewToy extends javax.swing.JFrame {
             }
         });
 
+        setResizable(false); //pch : 창 크기 고정
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -415,7 +416,8 @@ public class UserViewToy extends javax.swing.JFrame {
         
         else
         {
-				JOptionPane.showMessageDialog(UserViewToy.this, "이름이나 제조회사를 선택하세요","선택할 수 없습니다!", JOptionPane.ERROR_MESSAGE);
+            
+            JOptionPane.showMessageDialog(UserViewToy.this, "이름이나 제조회사를 선택하세요","선택할 수 없습니다!", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_SearchActionPerformed
 
