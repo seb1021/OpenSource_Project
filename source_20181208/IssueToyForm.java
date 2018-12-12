@@ -163,8 +163,8 @@ public class IssueToyForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(129, 129, 129)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                	.addComponent(jLabel4)
-                	.addComponent(jLabel3)
+                   .addComponent(jLabel4)
+                   .addComponent(jLabel3)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -249,9 +249,9 @@ public class IssueToyForm extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         int ToyIDV;
-        ToyIDV = Integer.parseInt(ToyID.getText());	//장난감 번호
-        int UserIDV;	
-        UserIDV = Integer.parseInt(UserID.getText());	//사용자 번호
+        ToyIDV = Integer.parseInt(ToyID.getText());   //장난감 번호
+        int UserIDV;   
+        UserIDV = Integer.parseInt(UserID.getText());   //사용자 번호
         
         String IFDate = IYear.getText() + "-"+IMonth.getText()+"-"+IDate.getText();
         String RFDate = RYear.getText() + "-"+RMonth.getText()+"-"+RDate.getText();
@@ -263,23 +263,25 @@ public class IssueToyForm extends javax.swing.JFrame {
         //사용자번호, 장난감 번호 모두 있는 번호라면
         if(TransToyDao.ToyValidate(ToyID.getText()) && TransToyDao.UserValidate(UserID.getText()))
         {
-          
-            if(TransToyDao.IssueToy(ToyIDV, UserIDV, IFDate, RFDate)!=0)
-            {
+           if(!TransToyDao.CheckIssuedToy(Integer.parseInt(ToyID.getText())))
+           {
+              if(TransToyDao.IssueToy(ToyIDV, UserIDV, IFDate, RFDate)!=0)
+              {
               
                 JOptionPane.showMessageDialog(IssueToyForm.this, "장난감이 대여되었습니다!","장난감 대여 완료!", JOptionPane.ERROR_MESSAGE);
                 ToyID.setText("");
                 UserID.setText("");
-            }
+              }
             else
               JOptionPane.showMessageDialog(IssueToyForm.this, "장난감을 대여 할 수 없습니다!","장난감 대여 에러!", JOptionPane.ERROR_MESSAGE);
             
-            
-            
+           }
+           else
+                JOptionPane.showMessageDialog(IssueToyForm.this, "이미 대여된 장난감압니다.!","장난감 대여 완료!", JOptionPane.ERROR_MESSAGE);
         }
         else
         {   
-        	 JOptionPane.showMessageDialog(IssueToyForm.this, "알 수 없는 번호입니다.!","대여 에러!", JOptionPane.ERROR_MESSAGE); 
+            JOptionPane.showMessageDialog(IssueToyForm.this, "알 수 없는 번호입니다.!","대여 에러!", JOptionPane.ERROR_MESSAGE); 
         }
       //  if(IssueToyDao.)
    
