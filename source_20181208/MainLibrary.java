@@ -40,7 +40,7 @@ public class MainLibrary extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("°ü¸®ÀÚ ·Î±×ÀÎ");
+        jButton1.setText("ê´€ë¦¬ì ë¡œê·¸ì¸");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -49,12 +49,12 @@ public class MainLibrary extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Ume Gothic O5", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Àå³­°¨µµ¼­°ü °ü¸® ½Ã½ºÅÛ");
+        jLabel1.setText("ì¥ë‚œê°ë„ì„œê´€ ê´€ë¦¬ ì‹œìŠ¤í…œ");
         jLabel1.setToolTipText("");
         
         
         
-        jButton2.setText("Åë°è");
+        jButton2.setText("í†µê³„");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -66,21 +66,21 @@ public class MainLibrary extends javax.swing.JFrame {
 
 
 
-        jButton3.setText("µµ¿ò¸»");
+        jButton3.setText("ë„ì›€ë§");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Á¾·á");
+        jButton4.setText("ì¢…ë£Œ");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
 
-        setResizable(false); //pch : Ã¢ Å©±â °íÁ¤
+        setResizable(false); //pch : ì°½ í¬ê¸° ê³ ì •
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -131,7 +131,7 @@ public class MainLibrary extends javax.swing.JFrame {
     
     private void jButton2ActionPerformed(ActionEvent evt) {
       // TODO Auto-generated method stub
-        Chart.main(new String[] {});
+        ChartMenu.main(new String[] {});
    }
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
