@@ -29,12 +29,13 @@ public static boolean checkToy(String Toycallno){
         while(rs.next())
         {
              //System.out.println(rs.getString("ChildName"));
-           System.out.println(rs.getInt("ToyNum")+"    "+ToyID);
+           
            int temp = rs.getInt("ToyNum");
            if(temp == Integer.parseInt(ToyID))
               status  =true;
         }
     }catch(Exception e){System.out.println(e);}
+    System.out.println("ToyID 찾음? "+status);
     return status;
 }
 //사용자 번호 찾기
@@ -50,13 +51,13 @@ public static boolean checkToy(String Toycallno){
         while(rs.next())
         {
              //System.out.println(rs.getString("ChildName"));
-           System.out.println(rs.getInt("IDNumber")+"    "+UserID);
            int temp = rs.getInt("IDNumber");
            if(temp == Integer.parseInt(UserID))
               status  =true;
         }
         con.close();
     }catch(Exception e){System.out.println(e);}
+    System.out.println("ToyID 찾음? "+status);
     return status;
 }
 
@@ -109,35 +110,36 @@ public static int IssueToy(int ToyID, int UserID, String IDate, String RDate)
     return status;
 }
 
-   
+   //장난감 반납 기능
     public static int ReturnToy(int ToyID,int UserID)
 {
     int status =0;
     try{
         
         Connection con =DB.getConnection();
-        PreparedStatement ps= con.prepareStatement("delete * from IssuedToy where ToyNum=? and UserID=?");
-        ps.setInt(1,ToyID);
+        PreparedStatement ps= con.prepareStatement("UPDATE userlist SET Toy=? WHERE IDNumber=?");
+        ps.setInt(1,0);
         ps.setInt(2, UserID);
         status =ps.executeUpdate();
+        System.out.println("status 값 : "+status);
         con.close();
 }catch(Exception e){System.out.println(e);}
     return status;
 }
 
-
-public static boolean CheckIssuedToy(int ToyID)
-{
-    boolean status = false;
-    try(Connection con = DB.getConnection()) {
-        PreparedStatement ps = con.prepareStatement("select * from userlist  where Toy=?"); 
-        ps.setInt(1, ToyID);
-        ResultSet rs=ps.executeQuery();
-        status=rs.next();
-        con.close();
-    }catch(Exception e){System.out.println(e);}
-    return status;
-}
+//대여된 장난감이 맞는지 확인
+    public static boolean CheckIssuedToy(int ToyID)
+    {
+        boolean status = false;
+        try(Connection con = DB.getConnection()) {
+            PreparedStatement ps = con.prepareStatement("select * from userlist  where Toy=?"); 
+            ps.setInt(1, ToyID);
+            ResultSet rs=ps.executeQuery();
+            status=rs.next();
+            con.close();
+        }catch(Exception e){System.out.println(e);}
+        return status;
+    }
 
    public static int Check(int UserID)
    {
