@@ -160,6 +160,7 @@ public class LibrarianSuccess extends javax.swing.JFrame {
             }
         });
 
+        setResizable(false); //pch : 창 크기 고정
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
