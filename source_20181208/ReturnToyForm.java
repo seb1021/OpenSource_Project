@@ -40,8 +40,8 @@ public class ReturnToyForm extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        UserID = new javax.swing.JTextField();
-        ToyID = new javax.swing.JTextField();
+        UserID = new javax.swing.JTextField();   //사용자번호
+        ToyID = new javax.swing.JTextField();   //장난감번호
         IMonth = new javax.swing.JTextField();
         IYear = new javax.swing.JTextField();
         IDate = new javax.swing.JTextField();
@@ -180,7 +180,8 @@ public class ReturnToyForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    //반납 눌렀을 때 클릭이벤트
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
@@ -211,8 +212,8 @@ public class ReturnToyForm extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(ReturnToyForm.this, "장난감을 반납할 수 없습니다!","장난감 반납 실패!", JOptionPane.ERROR_MESSAGE);
                        
                }
-              /* else
-                JOptionPane.showMessageDialog(ReturnToyForm.this, "이 장난감은 빌릴 수 없습니다!","장난감 대여 실패!", JOptionPane.ERROR_MESSAGE);*/
+               else
+                JOptionPane.showMessageDialog(ReturnToyForm.this, "이 장난감은 빌릴 수 없습니다!","장난감 대여 실패!", JOptionPane.ERROR_MESSAGE);
         }
         else
         {    if(TransToyDao.UserValidate(UserID.getText()))
