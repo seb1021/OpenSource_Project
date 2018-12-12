@@ -110,13 +110,13 @@ public static int IssueToy(int ToyID, int UserID, String IDate, String RDate)
 }
 
    
-    public static int ReturnToy(int ToyID, int UserID)
+    public static int ReturnToy(int ToyID,int UserID)
 {
     int status =0;
     try{
         
         Connection con =DB.getConnection();
-        PreparedStatement ps= con.prepareStatement("delete from Userlist where Toy=? and IDNumber=?");
+        PreparedStatement ps= con.prepareStatement("delete * from IssuedToy where ToyNum=? and UserID=?");
         ps.setInt(1,ToyID);
         ps.setInt(2, UserID);
         status =ps.executeUpdate();
@@ -159,3 +159,4 @@ public static boolean CheckIssuedToy(int ToyID)
        
    }
     
+
