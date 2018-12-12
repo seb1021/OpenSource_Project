@@ -87,7 +87,7 @@ public class IssuedProgram extends javax.swing.JFrame {
         jLabel4.setText("반납일");
 
         jButton1.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
-        jButton1.setText("대여");
+        jButton1.setText("예약");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -160,8 +160,8 @@ public class IssuedProgram extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(129, 129, 129)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                	.addComponent(jLabel4)
-                	.addComponent(jLabel3)
+                   .addComponent(jLabel4)
+                   .addComponent(jLabel3)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -248,18 +248,18 @@ public class IssuedProgram extends javax.swing.JFrame {
         /*int ToyIDV;
         ToyIDV = Integer.parseInt(ToyID.getText());*/
         int UserIDV;
-        UserIDV = Integer.parseInt(UserID.getText());	//사용자번호 저장 
+        UserIDV = Integer.parseInt(UserID.getText());   //사용자번호 저장 
         
        /* String IFDate = IYear.getText() + "-"+IMonth.getText()+"-"+IDate.getText();
         String RFDate = RYear.getText() + "-"+RMonth.getText()+"-"+RDate.getText();
         System.out.println(IFDate);*/
         
         //Date IFDDate = cal.getDate();             
-        if(TransProgramDao.Check(UserIDV))	//사용자번호가 있을 때
+        if(TransProgramDao.Check(UserIDV))   //사용자번호가 있을 때
         {    
-            	System.out.println("사용자 번호 있음!!!");
-        	TransProgramDao.IssueProgram(UserIDV);	//current값
-       	 
+               System.out.println("사용자 번호 있음!!!");
+           TransProgramDao.IssueProgram(UserIDV);   //current값
+           
              JOptionPane.showMessageDialog(IssuedProgram.this, "장난감이 대여되었습니다!","장난감 대여 완료!", JOptionPane.ERROR_MESSAGE);
              // ToyID.setText("");
               UserID.setText("");
@@ -267,8 +267,8 @@ public class IssuedProgram extends javax.swing.JFrame {
         }
         else
         {
-        	JOptionPane.showMessageDialog(IssuedProgram.this, "없는 사용자 번호 입니다. ","예약 에러!", JOptionPane.ERROR_MESSAGE);
-        	
+           JOptionPane.showMessageDialog(IssuedProgram.this, "없는 사용자 번호 입니다. ","예약 에러!", JOptionPane.ERROR_MESSAGE);
+           
         }
            
        
